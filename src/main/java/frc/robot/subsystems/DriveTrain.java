@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
-public class DriveTrain extends SubsystemBase {
+public class Drivetrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
   CANSparkMax leftMotor1 = new CANSparkMax(RobotMap.MOTOR_LEFT_ID_1, MotorType.kBrushed);
   CANSparkMax leftMotor2 = new CANSparkMax(RobotMap.MOTOR_LEFT_ID_2, MotorType.kBrushed);
@@ -24,7 +24,7 @@ public class DriveTrain extends SubsystemBase {
 
   DifferentialDrive dualDrive = new DifferentialDrive(leftMotors,rightMotors); 
 
-  public DriveTrain() {
+  public Drivetrain() {
   }
 
   // Wrapper Methods

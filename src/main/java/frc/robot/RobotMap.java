@@ -23,16 +23,17 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   
-  public static final int MOTOR_LEFT_ID_1 = 10;
-  public static final int MOTOR_LEFT_ID_2 = 11;
-  public static final int MOTOR_RIGHT_ID_1 = 12;
-  public static final int MOTOR_RIGHT_ID_2 = 13;
+  // Controls
+  public static final int CONTROLLER_PORT_ID = 0; // Joystick
 
-  // Joystick
-  public static final int CONTROLLER_PORT_ID = 0;
+  // Left joystick
+  public static final int JOYSTICK_DRIVE_SPEED_ID = 1; // Y-axis
+  public static final int JOYSTICK_DRIVE_ROTATION_ID = 0; // X-axis
 
-  // left joystick
-  public static final int JOYSTICK_DRIVE_FORWARDS_ID = 1;
-  public static final int JOYSTICK_DRIVE_ROTATION_ID = 0;
+  // Drivetrain
+  public static final int MOTOR_LEFT_FRONT_ID = 10;
+  public static final int MOTOR_LEFT_BACK_ID = 11;
+  public static final int MOTOR_RIGHT_FRONT_ID = 12;
+  public static final int MOTOR_RIGHT_BACK_ID = 13;
 
 }
