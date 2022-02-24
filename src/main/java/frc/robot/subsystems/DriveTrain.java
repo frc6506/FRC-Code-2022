@@ -10,15 +10,17 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.RobotMap;
+import frc.robot.Constants;
 
 public class Drivetrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
-  CANSparkMax leftMotor1 = new CANSparkMax(RobotMap.MOTOR_LEFT_ID_1, MotorType.kBrushed);
-  CANSparkMax leftMotor2 = new CANSparkMax(RobotMap.MOTOR_LEFT_ID_2, MotorType.kBrushed);
-  CANSparkMax rightMotor1 = new CANSparkMax(RobotMap.MOTOR_RIGHT_ID_1, MotorType.kBrushed);
-  CANSparkMax rightMotor2 = new CANSparkMax(RobotMap.MOTOR_RIGHT_ID_2, MotorType.kBrushed);
+  // Motor Controller Objects
+  CANSparkMax leftMotor1 = new CANSparkMax(Constants.MOTOR_LEFT_FRONT_ID, MotorType.kBrushed);
+  CANSparkMax leftMotor2 = new CANSparkMax(Constants.MOTOR_LEFT_BACK_ID, MotorType.kBrushed);
+  CANSparkMax rightMotor1 = new CANSparkMax(Constants.MOTOR_RIGHT_FRONT_ID, MotorType.kBrushed);
+  CANSparkMax rightMotor2 = new CANSparkMax(Constants.MOTOR_RIGHT_BACK_ID, MotorType.kBrushed);
 
+  // Motor Controller Group Objects
   MotorControllerGroup leftMotors = new  MotorControllerGroup(leftMotor1,leftMotor2);
   MotorControllerGroup rightMotors = new  MotorControllerGroup(rightMotor1,rightMotor2);
 
@@ -29,11 +31,10 @@ public class Drivetrain extends SubsystemBase {
 
   // Wrapper Methods
   /**
-   * @author .
    * @param speed
    * @param rotation
    */
-  public void aDrive(double speed,double rotation){
+  public void aDrive(double speed, double rotation){
     dualDrive.arcadeDrive(speed,rotation);
   }
 
