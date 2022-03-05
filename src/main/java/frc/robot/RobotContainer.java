@@ -32,14 +32,14 @@ public class RobotContainer {
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
 
   // Commands
-  public static ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);  //TODO
+  public static ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);
 
   Command m_autonomousCommand;  // Place holder
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // setting default commands
-    drivetrain.setDefaultCommand(arcadeDrive);  //TODO
+    drivetrain.setDefaultCommand(arcadeDrive);
     // Configure the button bindings
     configureButtonBindings();
   }
