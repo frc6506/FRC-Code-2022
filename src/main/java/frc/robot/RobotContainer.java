@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 //import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.ArcadeDrive;
 //import edu.wpi.first.wpilibj.XboxController;
 //import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
@@ -24,11 +25,14 @@ public class RobotContainer {
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
+  //Controls 
+  public static final XboxController controller = new XboxController(Constants.CONTROLLER_PORT_ID);
+
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
 
   // Commands
-  private final ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);  //TODO
+  public static ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);  //TODO
 
   Command m_autonomousCommand;  // Place holder
 
