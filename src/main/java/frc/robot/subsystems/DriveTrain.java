@@ -15,16 +15,19 @@ import frc.robot.Constants;
 public class Drivetrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
   // Motor Controller Objects
-  CANSparkMax leftMotor1 = new CANSparkMax(Constants.MOTOR_LEFT_FRONT_ID, MotorType.kBrushed);
-  CANSparkMax leftMotor2 = new CANSparkMax(Constants.MOTOR_LEFT_BACK_ID, MotorType.kBrushed);
-  CANSparkMax rightMotor1 = new CANSparkMax(Constants.MOTOR_RIGHT_FRONT_ID, MotorType.kBrushed);
-  CANSparkMax rightMotor2 = new CANSparkMax(Constants.MOTOR_RIGHT_BACK_ID, MotorType.kBrushed);
+  CANSparkMax leftMotor1 = new CANSparkMax(Constants.MOTOR_LEFT_FRONT_ID, MotorType.kBrushless);
+  CANSparkMax leftMotor2 = new CANSparkMax(Constants.MOTOR_LEFT_BACK_ID, MotorType.kBrushless);
+  CANSparkMax rightMotor1 = new CANSparkMax(Constants.MOTOR_RIGHT_FRONT_ID, MotorType.kBrushless);
+  CANSparkMax rightMotor2 = new CANSparkMax(Constants.MOTOR_RIGHT_BACK_ID, MotorType.kBrushless);
 
   // Motor Controller Group Objects
-  MotorControllerGroup leftMotors = new  MotorControllerGroup(leftMotor1,leftMotor2);
-  MotorControllerGroup rightMotors = new  MotorControllerGroup(rightMotor1,rightMotor2);
+  MotorControllerGroup leftMotors = new  MotorControllerGroup(leftMotor1, leftMotor2);
+  MotorControllerGroup rightMotors = new  MotorControllerGroup(rightMotor1, rightMotor2);
 
-  DifferentialDrive dualDrive = new DifferentialDrive(leftMotors,rightMotors); 
+  // Invert Right side (Correct backwardsness.)
+  rightMotors.setInverted(true);
+
+  DifferentialDrive dualDrive = new DifferentialDrive(leftMotors, rightMotors); 
 
   public Drivetrain() {
   }
