@@ -28,8 +28,9 @@ public final class Constants {
   public static final int JOYSTICK_DRIVE_ROTATION_ID = 0; // X-axis
 
   // Drivetrain
-  public static final int MOTOR_LEFT_FRONT_ID = 10;
-  public static final int MOTOR_LEFT_BACK_ID = 11;
-  public static final int MOTOR_RIGHT_FRONT_ID = 12;
-  public static final int MOTOR_RIGHT_BACK_ID = 13;
+  public static final int MOTOR_RIGHT_FRONT_ID = 10;
+  public static final int MOTOR_RIGHT_BACK_ID = 11;
+  public static final int MOTOR_LEFT_FRONT_ID = 12;
+  public static final int MOTOR_LEFT_BACK_ID = 13;
+  
 }
