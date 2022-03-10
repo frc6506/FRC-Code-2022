@@ -1,0 +1,25 @@
+Base (00-09):
+00 - CTRE PDP
+01 - NI RoboRIO
+
+Drivetrain (10-19):
+10 - Right front - Rev SparkMAX
+11 - Righ back - Rev SparkMAX
+*right invert
+12 - Left front - Rev SparkMAX
+13- - Left back - Rev SparkMAX
+
+Shintake (20-29):
+20 - Linear acutator - Talon SRX
+21 - Intake - Victor SPX
+22 - Feeder - Victor SPX
+23 - Flywheel - Rev SparkMAX
+
+Linear Actuator (30-39):
+30 - - CTRE/Vex Talon SRX (Phoenix)
+31 - - CTRE/Vex Victor SPX (Phoenix)
+
+Slidey Sled (40-49):
+40 - CTRE/Vex Talon SRX (Phoenix)
+41 - CTRE/Vex Victor SPX (Phoenix)
+
