@@ -9,9 +9,15 @@ import edu.wpi.first.wpilibj.XboxController;
 //import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.SpinFeedWheel;
+import frc.robot.commands.SpinFlywheel;
+import frc.robot.commands.SpinFeedWheel;
 //import edu.wpi.first.wpilibj.XboxController;
 //import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.InAndOut2;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Outtake;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -30,9 +36,15 @@ public class RobotContainer {
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
+  public static Intake intake = new Intake(); // Intake Assymbly
+  public static Outtake outtake = new Outtake(); // Outtake Assymbly - Fleywheel and feedwheel
+  public static InAndOut2 inAndOut2 = new InAndOut2(); // Linear actuator for Shintake Assybemly
 
   // Commands
   public static ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);
+  public static SpinFeedWheel spinFeedWheel = new SpinFeedWheel(outtake);
+  public static SpinFlywheel  spinFlywheel = new SpinFlywheel(outtake);
+
 
   Command m_autonomousCommand;  // Place holder
 

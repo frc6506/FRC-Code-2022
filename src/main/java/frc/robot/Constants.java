@@ -32,5 +32,12 @@ public final class Constants {
   public static final int MOTOR_RIGHT_BACK_ID = 11;
   public static final int MOTOR_LEFT_FRONT_ID = 12;
   public static final int MOTOR_LEFT_BACK_ID = 13;
+
+  // Shintake
+  public static final int MOTOR_SHINTAKE_EXTENDER_ID = 20;
+  
+  // Outtake
+  public static final int MOTOR_FLYWHEEL_ID = 23;
+  public static final int MOTOR_FEEDWHEEL_ID = 22;
   
 }
