@@ -32,15 +32,15 @@ public class ArcadeDrive extends CommandBase {
   @Override
   public void initialize() {}
 
-  //
-
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     //double speed = Robot.m_oi.getAxis(RobotMap.JOYSTICK_DRIVE_FORWARDS_ID) * -1;
     //double rotation = Robot.m_oi.getAxis(RobotMap.JOYSTICK_DRIVE_ROTATION_ID)
-    double speed = RobotContainer.controller.getRawAxis(1);
-    double rotation = RobotContainer.controller.getRawAxis(0);
+    double speed = RobotContainer.controller.getRawAxis(0);
+    double rotation = RobotContainer.controller.getRawAxis(1)*-1;
+    //double speed = RobotContainer.controller.getLeftX();
+    //double rotation = RobotContainer.controller.getLeftY();
     driveTrain.aDrive(speed, rotation);
   }
 

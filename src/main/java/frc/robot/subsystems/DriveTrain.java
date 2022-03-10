@@ -20,12 +20,15 @@ public class Drivetrain extends SubsystemBase {
   CANSparkMax rightMotor1 = new CANSparkMax(Constants.MOTOR_RIGHT_FRONT_ID, MotorType.kBrushless);
   CANSparkMax rightMotor2 = new CANSparkMax(Constants.MOTOR_RIGHT_BACK_ID, MotorType.kBrushless);
 
+  // Invert Right side (Correct backwardness.)
+  //rightMotor1.setInverted(true);
+
   // Motor Controller Group Objects
   MotorControllerGroup leftMotors = new  MotorControllerGroup(leftMotor1, leftMotor2);
   MotorControllerGroup rightMotors = new  MotorControllerGroup(rightMotor1, rightMotor2);
 
-  // Invert Right side (Correct backwardsness.)
-  rightMotors.setInverted(true);
+  // Invert Right side (Correct backwardness.)
+  //rightMotors.setInverted(true);
 
   DifferentialDrive dualDrive = new DifferentialDrive(leftMotors, rightMotors); 
 
@@ -38,13 +41,13 @@ public class Drivetrain extends SubsystemBase {
    * @param rotation
    */
   public void aDrive(double speed, double rotation){
-    dualDrive.arcadeDrive(speed,rotation);
+    dualDrive.arcadeDrive(speed, rotation);
   }
 
   /**
    * 
    * @param leftSPeed
-   * @param righSpeed
+   * @param rightSpeed
    */
   public void dDrive(double leftSpeed, double rightSpeed) {
     dualDrive.tankDrive(leftSpeed, rightSpeed);
