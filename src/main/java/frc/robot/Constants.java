@@ -34,10 +34,17 @@ public final class Constants {
   public static final int MOTOR_LEFT_BACK_ID = 13;
 
   // Shintake
-  public static final int MOTOR_SHINTAKE_EXTENDER_ID = 20;
+  public static final int MOTOR_SHINTAKE_EXTENDER_ID = 20; // Linear actutator for shintake
 
   // Outtake
-  public static final int MOTOR_INTAKE_ID = 21;
-  public static final int MOTOR_FLYWHEEL_ID = 23;
-  public static final int MOTOR_FEEDWHEEL_ID = 22;
+  public static final int MOTOR_INTAKE_ID = 21; // Intake wheel
+  public static final int MOTOR_FEEDWHEEL_ID = 22; // Feeder wheel
+  public static final int MOTOR_FLYWHEEL_ID = 23; // Flywheel
+
+  // Climber
+  public static final int MOTOR_CLIMBER_EXTENDER_LEFT_ID = 30; // Linear actutator for climb
+  public static final int MOTOR_CLIMBER_EXTENDER_RIGHT_ID = 31; // Linear actutator for climb 2
+  public static final int MOTOR_CLIMBER_SLED_LEFT_ID = 40; // Motor for climb sled 1
+  public static final int MOTOR_CLIMBER_SLED_RIGHT_ID = 41; // 
+  
 }

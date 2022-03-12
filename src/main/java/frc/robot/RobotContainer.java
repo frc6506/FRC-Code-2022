@@ -14,12 +14,14 @@ import frc.robot.commands.ExtendInAndOut;
 import frc.robot.commands.SpinFeedWheel;
 import frc.robot.commands.SpinFlywheel;
 import frc.robot.commands.SpinIntakeWheel;
+import frc.robot.subsystems.ClimbRaiser;
 // import edu.wpi.first.wpilibj.XboxController;
 // import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.InAndOut2;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Outtake;
+import frc.robot.subsystems.Sled;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -43,6 +45,10 @@ public class RobotContainer {
   public static Intake intake = new Intake(); // Intake Assymbly
   public static Outtake outtake = new Outtake(); // Outtake Assymbly - Fleywheel and feedwheel
   public static InAndOut2 inAndOut2 = new InAndOut2(); // Linear actuator for Shintake Assybemly
+
+  // Climber
+  public static ClimbRaiser climbRaiser = new ClimbRaiser(); // Linear acutoars for climber
+  public static Sled sled = new Sled(); // Slidey sled for climb!
 
   // Commands
 
