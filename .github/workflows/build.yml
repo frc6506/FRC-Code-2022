@@ -17,5 +17,4 @@ jobs:
         distribution: microsoft # Not sure which one to use
     - name: Build with Gradle
       run: |
-        cd "6506-Code-2022"
         .\gradlew.bat build
