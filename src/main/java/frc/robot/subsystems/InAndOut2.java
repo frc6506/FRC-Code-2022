@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class InAndOut2 extends SubsystemBase {
+  // Motor Controller Objects
   private TalonSRX extendMotor = new TalonSRX(Constants.MOTOR_SHINTAKE_EXTENDER_ID);
 
   /** Creates a new InAndOut2. */
@@ -20,7 +21,11 @@ public class InAndOut2 extends SubsystemBase {
     // This method will be called once per scheduler run
 
   }
-  // This method is called when
+  /**
+   * 
+   * @param speed decimal percent [-1.0, 1.0]
+   * FWD and Rev Limit switch enforced
+   */
   public void InAndOutExtend(double speed) {
     extendMotor.set(ControlMode.PercentOutput, speed);
   }

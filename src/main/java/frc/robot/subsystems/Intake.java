@@ -22,6 +22,10 @@ public class Intake extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
+  /**
+   * 
+   * @param speed decimal percent [-1.0, 1.0]
+   */
   public void spinIntakeWheel(double speed) {
     intakeMotor.set(ControlMode.PercentOutput, speed);
   }

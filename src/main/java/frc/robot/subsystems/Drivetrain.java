@@ -36,7 +36,7 @@ public class Drivetrain extends SubsystemBase {
 
   // Wrapper Methods
   /**
-   * @param speed
+   * @param speed decimal percent [-1.0, 1.0]
    * @param rotation
    */
   public void aDrive(double speed, double rotation) {
@@ -44,8 +44,8 @@ public class Drivetrain extends SubsystemBase {
   }
 
   /**
-   * @param leftSPeed
-   * @param rightSpeed
+   * @param leftSpeed decimal percent [-1.0, 1.0]
+   * @param rightSpeed decimal percent [-1.0, 1.0]
    */
   public void dDrive(double leftSpeed, double rightSpeed) {
     dualDrive.tankDrive(leftSpeed, rightSpeed);

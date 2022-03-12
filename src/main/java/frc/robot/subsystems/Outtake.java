@@ -28,7 +28,7 @@ public class Outtake extends SubsystemBase {
   }
 
   /**
-   * @param speed, -1.00 <= speed, 1.00
+   * @param speed, decimal percent [-1.0, 1.0]
    */
   public void spinFlywheel(double speed) {
     flyWheelMotor.set(speed);
