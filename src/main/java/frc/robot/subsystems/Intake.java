@@ -23,7 +23,6 @@ public class Intake extends SubsystemBase {
   }
 
   /**
-   * 
    * @param speed decimal percent [-1.0, 1.0]
    */
   public void spinIntakeWheel(double speed) {

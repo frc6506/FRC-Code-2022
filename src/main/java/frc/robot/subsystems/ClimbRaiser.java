@@ -7,7 +7,6 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -28,10 +27,8 @@ public class ClimbRaiser extends SubsystemBase {
   }
 
   /**
-   * 
-   * @param speed decimal percent [-1.0, 1.0]
-   * Be careful running bakcwards!! No Rev. limit switch
-   * FWD Limit switch enforced
+   * @param speed decimal percent [-1.0, 1.0] Be careful running bakcwards!! No Rev. limit switch
+   *     FWD Limit switch enforced
    */
   public void climbExtend(double speed) {
     extendMotorMain.set(ControlMode.PercentOutput, speed);
@@ -44,5 +41,4 @@ public class ClimbRaiser extends SubsystemBase {
   public boolean getFWDLimitState() {
     return extendMotorMain.getSensorCollection().isFwdLimitSwitchClosed();
   }
-
 }

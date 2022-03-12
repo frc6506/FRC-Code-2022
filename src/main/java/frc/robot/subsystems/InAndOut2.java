@@ -22,9 +22,7 @@ public class InAndOut2 extends SubsystemBase {
 
   }
   /**
-   * 
-   * @param speed decimal percent [-1.0, 1.0]
-   * FWD and Rev Limit switch enforced
+   * @param speed decimal percent [-1.0, 1.0] FWD and Rev Limit switch enforced
    */
   public void InAndOutExtend(double speed) {
     extendMotor.set(ControlMode.PercentOutput, speed);

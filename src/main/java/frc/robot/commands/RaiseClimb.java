@@ -13,10 +13,9 @@ public class RaiseClimb extends CommandBase {
   /** Creates a new raiseClimb. */
   public RaiseClimb(ClimbRaiser goingUp) {
     climbRaiser = goingUp;
-    
+
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(goingUp);
-
   }
 
   // Called when the command is initially scheduled.

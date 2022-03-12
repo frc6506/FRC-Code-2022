@@ -17,7 +17,7 @@ public class MoveSled extends CommandBase {
     addRequirements(slideyBit);
   }
 
-// Called when the command is initially scheduled.
+  // Called when the command is initially scheduled.
   @Override
   public void initialize() {}
 
