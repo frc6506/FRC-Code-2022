@@ -5,17 +5,17 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.InAndOut2;
+import frc.robot.subsystems.ClimbRaiser;
 
-public class ExtendInAndOut extends CommandBase {
-  private final InAndOut2 outAndIn2;
+public class RaiseClimb extends CommandBase {
+  private final ClimbRaiser climbRaiser;
 
-  /** Creates a new ExtendInAndOut. */
-  public ExtendInAndOut(InAndOut2 inAndOut) {
-    outAndIn2 = inAndOut;
+  /** Creates a new raiseClimb. */
+  public RaiseClimb(ClimbRaiser goingUp) {
+    climbRaiser = goingUp;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(inAndOut);
+    addRequirements(goingUp);
   }
 
   // Called when the command is initially scheduled.
@@ -25,16 +25,18 @@ public class ExtendInAndOut extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    outAndIn2.InAndOutExtend(.5);
+    climbRaiser.climbExtend(.25);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    climbRaiser.climbExtend(0);
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return outAndIn2.getFWDLimitState(); // Stop running if FWD limit reached
+    return climbRaiser.getFWDLimitState();
   }
 }

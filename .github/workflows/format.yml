@@ -2,6 +2,7 @@ name: Google Java Formatter
 
 on:
   - push
+  - pull_request
 
 jobs:
   formatting:

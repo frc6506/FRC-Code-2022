@@ -5,17 +5,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.InAndOut2;
+import frc.robot.subsystems.Sled;
 
-public class ExtendInAndOut extends CommandBase {
-  private final InAndOut2 outAndIn2;
-
-  /** Creates a new ExtendInAndOut. */
-  public ExtendInAndOut(InAndOut2 inAndOut) {
-    outAndIn2 = inAndOut;
+public class MoveSled extends CommandBase {
+  private final Sled sled;
+  /** Creates a new moveSled. */
+  public MoveSled(Sled slideyBit) {
+    sled = slideyBit;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(inAndOut);
+    addRequirements(slideyBit);
   }
 
   // Called when the command is initially scheduled.
@@ -25,7 +24,7 @@ public class ExtendInAndOut extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    outAndIn2.InAndOutExtend(.5);
+    sled.slideSled(.5);
   }
 
   // Called once the command ends or is interrupted.
@@ -35,6 +34,7 @@ public class ExtendInAndOut extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return outAndIn2.getFWDLimitState(); // Stop running if FWD limit reached
+    // Make this defualt command?
+    return false;
   }
 }

@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.BringInOutAndIn;
 import frc.robot.commands.ExtendInAndOut;
+import frc.robot.commands.MoveSled;
+import frc.robot.commands.RaiseClimb;
 import frc.robot.commands.SpinFeedWheel;
 import frc.robot.commands.SpinFlywheel;
 import frc.robot.commands.SpinIntakeWheel;
@@ -64,6 +66,11 @@ public class RobotContainer {
   public static SpinFlywheel spinFlywheel = new SpinFlywheel(outtake); // Spin flywheel
   public static BringInOutAndIn bringInOutAndIn =
       new BringInOutAndIn(inAndOut2); // Retract linear actuator for Shintake Assybemly
+
+  // Climber
+  public static RaiseClimb raiseClimb =
+      new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
+  public static MoveSled moveSled = new MoveSled(sled);
 
   Command m_autonomousCommand; // Place holder
 
