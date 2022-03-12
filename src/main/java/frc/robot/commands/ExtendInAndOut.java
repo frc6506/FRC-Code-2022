@@ -34,6 +34,6 @@ public class ExtendInAndOut extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return outAndIn2.getFWDLimitState(); // Stop running if FWD limit reached
   }
 }

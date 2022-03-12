@@ -26,4 +26,23 @@ public class InAndOut2 extends SubsystemBase {
   public void InAndOutExtend(double speed) {
     extendMotor.set(ControlMode.PercentOutput, speed);
   }
+
+  /**
+   * 
+   * @return true if the FWD limit swithc is closed
+   * See also: https://docs.ctre-phoenix.com/en/stable/ch13_MC.html?highlight=limit%20switch#limit-switch-as-digital-inputs
+   */
+  public boolean getFWDLimitState() {
+    return extendMotor.getSensorCollection().isFwdLimitSwitchClosed();
+  }
+
+  /**
+   * 
+   * @return true if the FWD limit swithc is closed
+   * See also: https://docs.ctre-phoenix.com/en/stable/ch13_MC.html?highlight=limit%20switch#limit-switch-as-digital-inputs
+   */
+  public boolean getRevLimitState() {
+    return extendMotor.getSensorCollection().isRevLimitSwitchClosed();
+  }
+
 }
