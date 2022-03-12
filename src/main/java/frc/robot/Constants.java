@@ -13,13 +13,13 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 /**
- * From RobotMap.java ((c) 2019)
- * The RobotMap is a mapping from the ports sensors and actuators are wired into to a variable name.
- * This provides flexibility changing wiring, makes checking the wiring easier and significantly
- * reduces the number of magic numbers floating around.
+ * From RobotMap.java ((c) 2019) The RobotMap is a mapping from the ports sensors and actuators are
+ * wired into to a variable name. This provides flexibility changing wiring, makes checking the
+ * wiring easier and significantly reduces the number of magic numbers floating around.
  */
 public final class Constants {
-  // Moved from old RobotMap.java and OI.java (except for Joystick Access method to comply with new template (and as shown in Practice Project 2021).  Thanks to @spacejunkl (CBS) for helpings.
+  // Moved from old RobotMap.java and OI.java (except for Joystick Access method to comply with new
+  // template (and as shown in Practice Project 2021).  Thanks to @spacejunkl (CBS) for helpings.
   // Controls
   public static final int CONTROLLER_PORT_ID = 0; // Joystick
 
@@ -35,10 +35,9 @@ public final class Constants {
 
   // Shintake
   public static final int MOTOR_SHINTAKE_EXTENDER_ID = 20;
-  
+
   // Outtake
   public static final int MOTOR_INTAKE_ID = 21;
   public static final int MOTOR_FLYWHEEL_ID = 23;
   public static final int MOTOR_FEEDWHEEL_ID = 22;
-  
 }

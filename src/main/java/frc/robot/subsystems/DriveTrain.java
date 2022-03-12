@@ -6,7 +6,6 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -16,36 +15,35 @@ public class Drivetrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
   // Motor Controller Objects
   CANSparkMax leftMotor1 = new CANSparkMax(Constants.MOTOR_LEFT_FRONT_ID, MotorType.kBrushless);
+
   CANSparkMax leftMotor2 = new CANSparkMax(Constants.MOTOR_LEFT_BACK_ID, MotorType.kBrushless);
   CANSparkMax rightMotor1 = new CANSparkMax(Constants.MOTOR_RIGHT_FRONT_ID, MotorType.kBrushless);
   CANSparkMax rightMotor2 = new CANSparkMax(Constants.MOTOR_RIGHT_BACK_ID, MotorType.kBrushless);
 
   // Invert Right side (Correct backwardness.)
-  //rightMotor1.setInverted(true);
+  // rightMotor1.setInverted(true);
 
   // Motor Controller Group Objects
-  MotorControllerGroup leftMotors = new  MotorControllerGroup(leftMotor1, leftMotor2);
-  MotorControllerGroup rightMotors = new  MotorControllerGroup(rightMotor1, rightMotor2);
+  MotorControllerGroup leftMotors = new MotorControllerGroup(leftMotor1, leftMotor2);
+  MotorControllerGroup rightMotors = new MotorControllerGroup(rightMotor1, rightMotor2);
 
   // Invert Right side (Correct backwardness.)
-  //rightMotors.setInverted(true);
+  // rightMotors.setInverted(true);
 
-  DifferentialDrive dualDrive = new DifferentialDrive(leftMotors, rightMotors); 
+  DifferentialDrive dualDrive = new DifferentialDrive(leftMotors, rightMotors);
 
-  public Drivetrain() {
-  }
+  public Drivetrain() {}
 
   // Wrapper Methods
   /**
    * @param speed
    * @param rotation
    */
-  public void aDrive(double speed, double rotation){
+  public void aDrive(double speed, double rotation) {
     dualDrive.arcadeDrive(speed, rotation);
   }
 
   /**
-   * 
    * @param leftSPeed
    * @param rightSpeed
    */

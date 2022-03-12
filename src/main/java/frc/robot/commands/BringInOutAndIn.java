@@ -35,5 +35,4 @@ public class BringInOutAndIn extends CommandBase {
   public boolean isFinished() {
     return inAndOut2.getRevLimitState(); // Stop running if Rev limit reached
   }
-
 }
