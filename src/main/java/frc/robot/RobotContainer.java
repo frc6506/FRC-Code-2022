@@ -68,7 +68,8 @@ public class RobotContainer {
       new BringInOutAndIn(inAndOut2); // Retract linear actuator for Shintake Assybemly
 
   // Climber
-  public static RaiseClimb raiseClimb = new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
+  public static RaiseClimb raiseClimb =
+      new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
   public static MoveSled moveSled = new MoveSled(sled);
 
   Command m_autonomousCommand; // Place holder

@@ -45,6 +45,5 @@ public final class Constants {
   public static final int MOTOR_CLIMBER_EXTENDER_LEFT_ID = 30; // Linear actutator for climb
   public static final int MOTOR_CLIMBER_EXTENDER_RIGHT_ID = 31; // Linear actutator for climb 2
   public static final int MOTOR_CLIMBER_SLED_LEFT_ID = 40; // Motor for climb sled 1
-  public static final int MOTOR_CLIMBER_SLED_RIGHT_ID = 41; // 
-  
+  public static final int MOTOR_CLIMBER_SLED_RIGHT_ID = 41; //
 }
