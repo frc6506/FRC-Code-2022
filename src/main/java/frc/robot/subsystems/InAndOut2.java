@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -13,10 +14,16 @@ public class InAndOut2 extends SubsystemBase {
   private TalonSRX extendMotor = new TalonSRX(Constants.MOTOR_SHINTAKE_EXTENDER_ID);
 
   /** Creates a new InAndOut2. */
+
   public InAndOut2() {}
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+
+  }
+  // This method is called when 
+  public void InAndOutExtend(double speed) {
+    extendMotor.set(ControlMode.PercentOutput, speed);
   }
 }
