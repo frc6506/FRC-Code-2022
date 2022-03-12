@@ -4,24 +4,23 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Outtake extends SubsystemBase {
   // Motor Controller Objects
-  private CANSparkMax flyWheelMotor = new CANSparkMax(Constants.MOTOR_FLYWHEEL_ID, MotorType.kBrushless);
+  private CANSparkMax flyWheelMotor =
+      new CANSparkMax(Constants.MOTOR_FLYWHEEL_ID, MotorType.kBrushless);
   private VictorSPX feedWheelMotor = new VictorSPX(Constants.MOTOR_FEEDWHEEL_ID);
 
   /** Creates a new Outtake. */
   public Outtake() {}
 
   /**
-   * 
    * @param speed, -1.00 <= speed, 1.00
    */
   public void spinFeedWheel(double speed) {
@@ -29,7 +28,6 @@ public class Outtake extends SubsystemBase {
   }
 
   /**
-   * 
    * @param speed, -1.00 <= speed, 1.00
    */
   public void spinFlywheel(double speed) {
