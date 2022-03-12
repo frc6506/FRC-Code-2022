@@ -39,8 +39,11 @@ public class RobotContainer {
 
   // Controls
   public static final XboxController controller = new XboxController(Constants.CONTROLLER_PORT_ID);
-  // It's recomend ot use the provided enum to look button ids - see https://docs.wpilib.org/en/stable/docs/software/commandbased/binding-commands-to-triggers.html, https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/XboxController.Button.html,and https://first.wpi.edu/wpilib/allwpilib/docs/release/java/src-html/edu/wpi/first/wpilibj/XboxController.Button.html#line.24
-  public static final JoystickButton shootButton = new JoystickButton(controller, Constants.JOYSTICK_BUTTON_SHOOT_ID);
+  // It's recomend ot use the provided enum to look button ids - see
+  // https://docs.wpilib.org/en/stable/docs/software/commandbased/binding-commands-to-triggers.html,
+  // https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/XboxController.Button.html,and https://first.wpi.edu/wpilib/allwpilib/docs/release/java/src-html/edu/wpi/first/wpilibj/XboxController.Button.html#line.24
+  public static final JoystickButton shootButton =
+      new JoystickButton(controller, Constants.JOYSTICK_BUTTON_SHOOT_ID);
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
@@ -92,9 +95,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-    private void configureButtonBindings() {
-      shootButton.whileHeld(spinFeedWheel);
-
+  private void configureButtonBindings() {
+    shootButton.whileHeld(spinFeedWheel);
   }
 
   /**

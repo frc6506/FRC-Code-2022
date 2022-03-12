@@ -29,7 +29,7 @@ public final class Constants {
 
   // Buttons
   public static final int JOYSTICK_BUTTON_SHOOT_ID = 1; // Xbox controller button for shooting
- 
+
   // Drivetrain
   public static final int MOTOR_RIGHT_FRONT_ID = 10;
   public static final int MOTOR_RIGHT_BACK_ID = 11;
