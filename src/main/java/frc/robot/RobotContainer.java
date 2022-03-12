@@ -9,8 +9,11 @@ import edu.wpi.first.wpilibj.XboxController;
 //import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.BringInOutAndIn;
+import frc.robot.commands.ExtendInAndOut;
 import frc.robot.commands.SpinFeedWheel;
 import frc.robot.commands.SpinFlywheel;
+import frc.robot.commands.SpinIntakeWheel;
 import frc.robot.commands.SpinFeedWheel;
 //import edu.wpi.first.wpilibj.XboxController;
 //import frc.robot.commands.ExampleCommand;
@@ -36,16 +39,25 @@ public class RobotContainer {
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
+
+  // Shintake
   public static Intake intake = new Intake(); // Intake Assymbly
   public static Outtake outtake = new Outtake(); // Outtake Assymbly - Fleywheel and feedwheel
   public static InAndOut2 inAndOut2 = new InAndOut2(); // Linear actuator for Shintake Assybemly
 
+
   // Commands
+
+  // Drive!
   public static ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);
-  public static SpinFeedWheel spinFeedWheel = new SpinFeedWheel(outtake);
-  public static SpinFlywheel  spinFlywheel = new SpinFlywheel(outtake);
 
-
+  // Shintake
+  public static ExtendInAndOut extendInAndOut = new ExtendInAndOut(inAndOut2); // Extend linear actuator for Shintake Assybemly
+  public static SpinIntakeWheel spinIntakeWheel = new SpinIntakeWheel(intake); // Spin intake wheel
+  public static SpinFeedWheel spinFeedWheel = new SpinFeedWheel(outtake); // Spin feed wheel for shooter
+  public static SpinFlywheel spinFlywheel = new SpinFlywheel(outtake); // Spin flywheel
+  public static BringInOutAndIn bringInOutAndIn = new BringInOutAndIn(inAndOut2); // Retract linear actuator for Shintake Assybemly
+  
   Command m_autonomousCommand;  // Place holder
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
