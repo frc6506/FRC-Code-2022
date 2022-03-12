@@ -33,7 +33,7 @@ public class ClimbRaiser extends SubsystemBase {
    * Be careful running bakcwards!! No Rev. limit switch
    * FWD Limit switch enforced
    */
-  public void InAndOutExtend(double speed) {
+  public void climbExtend(double speed) {
     extendMotorMain.set(ControlMode.PercentOutput, speed);
   }
 
