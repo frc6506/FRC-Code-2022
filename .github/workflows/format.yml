@@ -10,6 +10,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: axel-op/googlejavaformat-action@v2.0.0
+    - uses: axel-op/googlejavaformat-action@3.5.0
       with:
         args: "--skip-removing-unused-imports --replace"
