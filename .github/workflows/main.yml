@@ -6,7 +6,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -16,5 +16,5 @@ jobs:
         java-version: 11
     - name: Build with Gradle
       run: |
-        cd "RobotCode2020"
+        cd "6506-Code-2022"
         .\gradlew.bat build
