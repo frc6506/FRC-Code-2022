@@ -9,6 +9,7 @@ import frc.robot.subsystems.InAndOut2;
 
 public class ExtendInAndOut extends CommandBase {
   private final InAndOut2 outAndIn2;
+  
   /** Creates a new ExtendInAndOut. */
   public ExtendInAndOut(InAndOut2 inAndOut) {
     outAndIn2 = inAndOut;
