@@ -7,7 +7,6 @@ package frc.robot.subsystems;
 import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -35,7 +34,7 @@ public class Drivetrain extends SubsystemBase {
 
   DifferentialDrive dualDrive = new DifferentialDrive(leftMotors, rightMotors);
 
-  //NavX gyroscope
+  // NavX gyroscope
   AHRS gyro = new AHRS(SPI.Port.kMXP);
 
   public Drivetrain() {}
@@ -61,5 +60,4 @@ public class Drivetrain extends SubsystemBase {
   public void dDrive(double leftSpeed, double rightSpeed) {
     dualDrive.tankDrive(leftSpeed, rightSpeed);
   }
-
 }
