@@ -27,6 +27,9 @@ public final class Constants {
   public static final int JOYSTICK_DRIVE_SPEED_ID = 1; // Y-axis
   public static final int JOYSTICK_DRIVE_ROTATION_ID = 0; // X-axis
 
+  // Buttons
+  public static final int JOYSTICK_BUTTON_SHOOT_ID = 1; // Xbox controller button for shooting
+
   // Drivetrain
   public static final int MOTOR_RIGHT_FRONT_ID = 10;
   public static final int MOTOR_RIGHT_BACK_ID = 11;

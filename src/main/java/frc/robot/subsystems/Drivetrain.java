@@ -4,8 +4,10 @@
 
 package frc.robot.subsystems;
 
+import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -32,7 +34,15 @@ public class Drivetrain extends SubsystemBase {
 
   DifferentialDrive dualDrive = new DifferentialDrive(leftMotors, rightMotors);
 
+  // NavX gyroscope
+  AHRS gyro = new AHRS(SPI.Port.kMXP);
+
   public Drivetrain() {}
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
 
   // Wrapper Methods
   /**
@@ -49,10 +59,5 @@ public class Drivetrain extends SubsystemBase {
    */
   public void dDrive(double leftSpeed, double rightSpeed) {
     dualDrive.tankDrive(leftSpeed, rightSpeed);
-  }
-
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
   }
 }

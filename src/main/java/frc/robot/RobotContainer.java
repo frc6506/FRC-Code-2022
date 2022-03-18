@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 // import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.BringInOutAndIn;
 import frc.robot.commands.ExtendInAndOut;
@@ -17,7 +18,6 @@ import frc.robot.commands.SpinFeedWheel;
 import frc.robot.commands.SpinFlywheel;
 import frc.robot.commands.SpinIntakeWheel;
 import frc.robot.subsystems.ClimbRaiser;
-// import edu.wpi.first.wpilibj.XboxController;
 // import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.InAndOut2;
@@ -39,6 +39,11 @@ public class RobotContainer {
 
   // Controls
   public static final XboxController controller = new XboxController(Constants.CONTROLLER_PORT_ID);
+  // It's recomend ot use the provided enum to look button ids - see
+  // https://docs.wpilib.org/en/stable/docs/software/commandbased/binding-commands-to-triggers.html,
+  // https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/XboxController.Button.html,and https://first.wpi.edu/wpilib/allwpilib/docs/release/java/src-html/edu/wpi/first/wpilibj/XboxController.Button.html#line.24
+  public static final JoystickButton shootButton =
+      new JoystickButton(controller, Constants.JOYSTICK_BUTTON_SHOOT_ID);
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
@@ -78,6 +83,8 @@ public class RobotContainer {
   public RobotContainer() {
     // setting default commands
     drivetrain.setDefaultCommand(arcadeDrive);
+    intake.setDefaultCommand(spinIntakeWheel);
+
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -88,7 +95,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    shootButton.whileHeld(spinFeedWheel);
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
