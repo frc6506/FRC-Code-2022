@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Outtake;
 
 public class SpinFlywheel extends CommandBase {
@@ -24,7 +25,9 @@ public class SpinFlywheel extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    outtake.spinFlywheel(.1);
+    // outtake.spinFlywheel(.1);
+    outtake.spinFlywheel(
+        RobotContainer.controller.getRawAxis(2)); // TODO Chagne to trigger and set speed
   }
 
   // Called once the command ends or is interrupted.

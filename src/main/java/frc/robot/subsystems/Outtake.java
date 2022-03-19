@@ -18,7 +18,9 @@ public class Outtake extends SubsystemBase {
   private VictorSPX feedWheelMotor = new VictorSPX(Constants.MOTOR_FEEDWHEEL_ID);
 
   /** Creates a new Outtake. */
-  public Outtake() {}
+  public Outtake() {
+    feedWheelMotor.setInverted(true); // Spins backwards
+  }
 
   /**
    * @param speed, -1.00 <= speed, 1.00
