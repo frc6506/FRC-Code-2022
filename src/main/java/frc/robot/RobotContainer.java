@@ -67,7 +67,8 @@ public class RobotContainer {
   // Shintake
   public static ExtendInAndOut extendInAndOut =
       new ExtendInAndOut(inAndOut2); // Extend linear actuator for Shintake Assybemly
-  public static final SpinIntakeWheel spinIntakeWheel = new SpinIntakeWheel(intake); // Spin intake wheel
+  public static final SpinIntakeWheel spinIntakeWheel =
+      new SpinIntakeWheel(intake); // Spin intake wheel
   public static final SpinFeedWheel spinFeedWheel =
       new SpinFeedWheel(outtake); // Spin feed wheel for shooter
   public static SpinFlywheel spinFlywheel = new SpinFlywheel(outtake); // Spin flywheel
