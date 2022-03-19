@@ -83,8 +83,8 @@ public class RobotContainer {
   public RobotContainer() {
     // setting default commands
     drivetrain.setDefaultCommand(arcadeDrive);
-    intake.setDefaultCommand(spinIntakeWheel);  // TODO: Change to trigger
-    outtake.setDefaultCommand(spinFlywheel);  // TODO: Change to trigger
+    intake.setDefaultCommand(spinIntakeWheel); // TODO: Change to trigger
+    outtake.setDefaultCommand(spinFlywheel); // TODO: Change to trigger
 
     // Configure the button bindings
     configureButtonBindings();
