@@ -6,7 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.buttons.Button;
 // import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -68,8 +67,8 @@ public class RobotContainer {
   // Shintake
   public static ExtendInAndOut extendInAndOut =
       new ExtendInAndOut(inAndOut2); // Extend linear actuator for Shintake Assybemly
-  public static SpinIntakeWheel spinIntakeWheel = new SpinIntakeWheel(intake); // Spin intake wheel
-  public static SpinFeedWheel spinFeedWheel =
+  public static final SpinIntakeWheel spinIntakeWheel = new SpinIntakeWheel(intake); // Spin intake wheel
+  public static final SpinFeedWheel spinFeedWheel =
       new SpinFeedWheel(outtake); // Spin feed wheel for shooter
   public static SpinFlywheel spinFlywheel = new SpinFlywheel(outtake); // Spin flywheel
   public static BringInOutAndIn bringInOutAndIn =
@@ -99,8 +98,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     shootButton.whileHeld(spinFeedWheel);
-    intakeButton.whileActive(spinIntakeWheel);
-    flywheelButton.whileActive(spinFlywheel);
+    intakeButton.whileActiveContinuous(spinIntakeWheel);
+    flywheelButton.whileActiveContinuous(spinFlywheel);
   }
 
   /**
