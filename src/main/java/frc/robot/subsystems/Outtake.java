@@ -81,7 +81,7 @@ public class Outtake extends SubsystemBase {
           Nat.N1(),
           Nat.N1(),
           m_flywheelPlant,
-          VecBuilder.fill(3.0), // How accurate we think our model is
+          VecBuilder.fill(3.0), // How accurate we think our model is  // As per, it shouldn't be trusted // TODO: Lower model trust, at this piont, mabye straight up PId or jst a sipmle P controler would be better
           VecBuilder.fill(0.01), // How accurate we think our encoderdata is
           0.020);
 
