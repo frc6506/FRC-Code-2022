@@ -83,7 +83,10 @@ public class Outtake extends SubsystemBase {
           Nat.N1(),
           Nat.N1(),
           m_flywheelPlant,
-          VecBuilder.fill(3.0), // How accurate we think our model is  // As per, it shouldn't be trusted // TODO: Lower model trust, at this piont, mabye straight up PId or jst a sipmle P controler would be better
+          VecBuilder.fill(
+              3.0), // How accurate we think our model is  // As per, it shouldn't be trusted //
+                    // TODO: Lower model trust, at this piont, mabye straight up PId or jst a sipmle
+                    // P controler would be better
           VecBuilder.fill(0.01), // How accurate we think our encoderdata is
           0.020);
 
@@ -154,8 +157,8 @@ public class Outtake extends SubsystemBase {
     return Units.rotationsPerMinuteToRadiansPerSecond(
         flyWheelMotor.getEncoder().getVelocity()
             * 1.33); // The Spark MAX reports in rev/s be defualt, but WPILib is metric and likes
-                     // rad/s (eww) for some reason.  See
-                     // https://www.chiefdelphi.com/t/units-for-spark-max-neo-encoder-and-state-space-control-kalman-filter-correction/406189 and https://github.com/wpilibsuite/allwpilib/blob/3b283ab9aaf9d23d7870b9c3723d03760a0bd378/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/statespaceflywheel/Robot.java
+    // rad/s (eww) for some reason.  See
+    // https://www.chiefdelphi.com/t/units-for-spark-max-neo-encoder-and-state-space-control-kalman-filter-correction/406189 and https://github.com/wpilibsuite/allwpilib/blob/3b283ab9aaf9d23d7870b9c3723d03760a0bd378/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/statespaceflywheel/Robot.java
   }
 
   public boolean reachedVelocity() {
