@@ -12,7 +12,7 @@ import frc.robot.subsystems.Outtake;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class StopFlywheel extends InstantCommand {
   private final Outtake outtake;
-  
+
   public StopFlywheel(Outtake takeout) {
     outtake = takeout;
     // Use addRequirements() here to declare subsystem dependencies.

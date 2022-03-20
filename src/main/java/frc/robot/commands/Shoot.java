@@ -13,20 +13,22 @@ public class Shoot extends CommandBase {
   /** Creates a new Shoot. */
   public Shoot() {
     // Use addRequirements() here to declare subsystem dependencies.
-    
-    // TODO: Consider changing static access to passed paramters as per https://stackoverflow.com/questions/45180476/passing-an-instance-through-constructors-or-accessing-it-with-static
+
+    // TODO: Consider changing static access to passed paramters as per
+    // https://stackoverflow.com/questions/45180476/passing-an-instance-through-constructors-or-accessing-it-with-static
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    CommandScheduler.getInstance().schedule(RobotContainer.startFlywheel); // Not sure best way to get commands
+    CommandScheduler.getInstance()
+        .schedule(RobotContainer.startFlywheel); // Not sure best way to get commands
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(RobotContainer.outtake.reachedVelocity()) {
+    if (RobotContainer.outtake.reachedVelocity()) {
       CommandScheduler.getInstance().schedule(RobotContainer.spinFeedWheel);
     }
   }
@@ -34,7 +36,11 @@ public class Shoot extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    CommandScheduler.getInstance().cancel(RobotContainer.spinFeedWheel); // Canceling will/ should  interupt the command and stop the feed wheel
+    CommandScheduler.getInstance()
+        .cancel(
+            RobotContainer
+                .spinFeedWheel); // Canceling will/ should  interupt the command and stop the feed
+                                 // wheel
     CommandScheduler.getInstance().schedule(RobotContainer.stopFlywheel);
   }
 
