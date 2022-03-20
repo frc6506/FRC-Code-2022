@@ -25,6 +25,8 @@ public class Outtake extends SubsystemBase {
       new CANSparkMax(Constants.MOTOR_FLYWHEEL_ID, MotorType.kBrushless);
   private VictorSPX feedWheelMotor = new VictorSPX(Constants.MOTOR_FEEDWHEEL_ID);
 
+  private double angularVelocity;
+
   /** Creates a new Outtake. */
   public Outtake() {
     feedWheelMotor.setInverted(true); // Spins backwards
@@ -100,14 +102,16 @@ public class Outtake extends SubsystemBase {
       new LinearSystemLoop<>(m_flywheelPlant, m_controller, m_observer, 12.0, 0.020);
 
   /**
-   * @param angularVelocity
+   * @param angVelocity
    */
-  public void setFlyWheelO(double angularVelocity) {
+  public void setFlyWheelO(double angVelocity) {
+    angularVelocity = angVelocity;
+
     // Sets the target speed of our flywheel. This is similar to setting the setpoint of a
 
     // PID controller.
     // We just pressed the trigger, so let's set our next reference
-    m_loop.setNextR(VecBuilder.fill(angularVelocity)); // TODO: How to use kSpinupRadPerSec?
+    m_loop.setNextR(VecBuilder.fill(angVelocity)); // TODO: How to use kSpinupRadPerSec?
 
     // Correct our Kalman filter's state vector estimate with encoder data.
     m_loop.correct(
@@ -131,5 +135,13 @@ public class Outtake extends SubsystemBase {
   public void stopFlyWheel() {
     // We just released the trigger, so let's spin down
     m_loop.setNextR(VecBuilder.fill(0.0));
+  }
+
+  public double getVelocity() {
+    return flyWheelMotor.getEncoder().getVelocity();
+  }
+
+  public boolean reachedVelocity() {
+    return (getVelocity() >= angularVelocity * .95) && (getVelocity() <= angularVelocity * 1.05);
   }
 }

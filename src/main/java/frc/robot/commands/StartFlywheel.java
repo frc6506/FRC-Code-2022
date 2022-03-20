@@ -5,14 +5,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.Outtake;
 
-public class SpinFlywheel extends CommandBase {
+// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
+// information, see:
+// https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
+public class StartFlywheel extends InstantCommand {
   private final Outtake outtake;
-
-  /** Creates a new SpinFlywheel. */
-  public SpinFlywheel(Outtake takeout) {
+  
+  public StartFlywheel(Outtake takeout) {
     outtake = takeout;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(takeout);
@@ -20,26 +22,10 @@ public class SpinFlywheel extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
-
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
+  public void initialize() {
     outtake.setFlyWheelO(
         Units.rotationsToRadians(5676)
             * 1.33
             * .75); // Rev NEO in Rev/s to Rad/s * 1.33 step up gear * 75% output level
-  } // Kind a lame to constlany re-call this.  Maybe split start and stop in serpate commands?
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-    outtake.stopFlyWheel();
-  }
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
   }
 }

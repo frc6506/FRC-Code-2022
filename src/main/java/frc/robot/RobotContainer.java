@@ -14,9 +14,11 @@ import frc.robot.commands.BringInOutAndIn;
 import frc.robot.commands.ExtendInAndOut;
 import frc.robot.commands.MoveSled;
 import frc.robot.commands.RaiseClimb;
+import frc.robot.commands.Shoot;
 import frc.robot.commands.SpinFeedWheel;
-import frc.robot.commands.SpinFlywheel;
 import frc.robot.commands.SpinIntakeWheel;
+import frc.robot.commands.StartFlywheel;
+import frc.robot.commands.StopFlywheel;
 import frc.robot.subsystems.ClimbRaiser;
 // import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
@@ -45,7 +47,6 @@ public class RobotContainer {
   public static final JoystickButton shootButton =
       new JoystickButton(controller, Constants.JOYSTICK_BUTTON_SHOOT_ID);
   public static final TriggerL2Button intakeButton = new TriggerL2Button();
-  public static final TriggerR2Button flywheelButton = new TriggerR2Button();
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
@@ -71,7 +72,9 @@ public class RobotContainer {
       new SpinIntakeWheel(intake); // Spin intake wheel
   public static final SpinFeedWheel spinFeedWheel =
       new SpinFeedWheel(outtake); // Spin feed wheel for shooter
-  public static SpinFlywheel spinFlywheel = new SpinFlywheel(outtake); // Spin flywheel
+  public static StartFlywheel startFlywheel = new StartFlywheel(outtake); // Start flywheel
+  public static StopFlywheel stopFlywheel = new StopFlywheel(outtake); // Start flywheel
+  public static Shoot shoot = new Shoot(); // Start flywheel, run feed wheel when up to speed
   public static BringInOutAndIn bringInOutAndIn =
       new BringInOutAndIn(inAndOut2); // Retract linear actuator for Shintake Assybemly
 
@@ -98,9 +101,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    shootButton.whileHeld(spinFeedWheel);
     intakeButton.whileActiveContinuous(spinIntakeWheel);
-    flywheelButton.whileActiveContinuous(spinFlywheel);
+    shootButton.whileHeld(shoot);
   }
 
   /**
