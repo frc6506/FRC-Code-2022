@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Outtake;
+import edu.wpi.first.math.util.Units;
 
 public class SpinFlywheel extends CommandBase {
   private final Outtake outtake;
@@ -24,13 +25,13 @@ public class SpinFlywheel extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    outtake.spinFlywheel(.75);
+    outtake.setFlyWheelO(Units.rotationsToRadians(5676) * 1.33 * .75); // Rev NEO in Rev/s to Rad/s * 1.33 step up gear * 75% output level
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    outtake.spinFlywheel(0);
+    outtake.stopFlyWheel();
   }
 
   // Returns true when the command should end.
