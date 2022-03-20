@@ -16,6 +16,7 @@ import edu.wpi.first.math.numbers.N1;
 import edu.wpi.first.math.system.LinearSystem;
 import edu.wpi.first.math.system.LinearSystemLoop;
 import edu.wpi.first.math.system.plant.LinearSystemId;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -111,14 +112,11 @@ public class Outtake extends SubsystemBase {
 
     // PID controller.
     // We just pressed the trigger, so let's set our next reference
-    m_loop.setNextR(VecBuilder.fill(angVelocity)); // TODO: How to use kSpinupRadPerSec?
+    m_loop.setNextR(VecBuilder.fill(angVelocity)); // kSpinupRadPerSec appers ato be the refernce (target) volocity
 
     // Correct our Kalman filter's state vector estimate with encoder data.
-    m_loop.correct(
-        VecBuilder.fill(
-            flyWheelMotor
-                .getEncoder()
-                .getVelocity())); // .getRate() // TODO: What unit?  This might be in rev/s
+    m_loop.correct(VecBuilder.fill(Units.rotationsPerMinuteToRadiansPerSecond(flyWheelMotor.getEncoder().getVelocity()))); // The Spark MAX reports in rev/s be defualt, but WPILib is metric and likes rad/s (eww) for some reason.  See https://www.chiefdelphi.com/t/units-for-spark-max-neo-encoder-and-state-space-control-kalman-filter-correction/406189 and https://github.com/wpilibsuite/allwpilib/blob/3b283ab9aaf9d23d7870b9c3723d03760a0bd378/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/statespaceflywheel/Robot.java
+    
     // Update our LQR to generate new voltage commands and use the voltages to predict the next
     // state with out Kalman filter.
     m_loop.predict(0.020);
