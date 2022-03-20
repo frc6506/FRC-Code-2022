@@ -29,7 +29,7 @@ public class SpinFlywheel extends CommandBase {
         Units.rotationsToRadians(5676)
             * 1.33
             * .75); // Rev NEO in Rev/s to Rad/s * 1.33 step up gear * 75% output level
-  }
+  } // Kind a lame to constlany re-call this.  Maybe split start and stop in serpate commands?
 
   // Called once the command ends or is interrupted.
   @Override
