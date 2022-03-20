@@ -8,7 +8,6 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import edu.wpi.first.math.Nat;
 import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.controller.LinearQuadraticRegulator;
@@ -53,22 +52,22 @@ public class Outtake extends SubsystemBase {
   // Volts per (radian per second)
   private static final double kFlywheelKv = 0.099912;
 
-
   // Volts per (radian per second squared)
   private static final double kFlywheelKa = 0.0077474;
 
-
-  /** The plant holds a state-space model of our flywheel. This system has the following properties:
+  /**
+   * The plant holds a state-space model of our flywheel. This system has the following properties:
    *
-   * States: [velocity], in radians per second.
-   * Inputs (what we can "put in"): [voltage], in volts.
-   * 
-   * Outputs (what we can measure): [velocity], in radians per second.
-   * 
-   * The Kv and Ka constants are found using the FRC Characterization toolsuite.
+   * <p>States: [velocity], in radians per second. Inputs (what we can "put in"): [voltage], in
+   * volts.
+   *
+   * <p>Outputs (what we can measure): [velocity], in radians per second.
+   *
+   * <p>The Kv and Ka constants are found using the FRC Characterization toolsuite.
    */
-  private final LinearSystem<N1, N1, N1> m_flywheelPlant = LinearSystemId.identifyVelocitySystem(kFlywheelKv, kFlywheelKa);
-  
+  private final LinearSystem<N1, N1, N1> m_flywheelPlant =
+      LinearSystemId.identifyVelocitySystem(kFlywheelKv, kFlywheelKa);
+
   // The observer fuses our encoder data and voltage inputs to reject noise.
   private final KalmanFilter<N1, N1, N1> m_observer =
       new KalmanFilter<>(
@@ -78,33 +77,44 @@ public class Outtake extends SubsystemBase {
           VecBuilder.fill(3.0), // How accurate we think our model is
           VecBuilder.fill(0.01), // How accurate we think our encoderdata is
           0.020);
-  
-          // A LQR uses feedback to create voltage commands.
+
+  // A LQR uses feedback to create voltage commands.
 
   private final LinearQuadraticRegulator<N1, N1, N1> m_controller =
       new LinearQuadraticRegulator<>(
-        m_flywheelPlant,
-        VecBuilder.fill(8.0), // qelms. Velocity error tolerance, in radians per second. Decrease this to more heavily penalize state excursion, or make the controller behave more aggressively.
-        VecBuilder.fill(12.0), // relms. Control effort (voltage) tolerance. Decrease this to more heavily penalize control effort, or make the controller less aggressive. 12 is a good starting point because that is the (approximate) maximum voltage of a battery.
-        0.020); // Nominal time between loops. 0.020 for TimedRobot, but can be lower if using notifiers.
+          m_flywheelPlant,
+          VecBuilder.fill(
+              8.0), // qelms. Velocity error tolerance, in radians per second. Decrease this to more
+                    // heavily penalize state excursion, or make the controller behave more
+                    // aggressively.
+          VecBuilder.fill(
+              12.0), // relms. Control effort (voltage) tolerance. Decrease this to more heavily
+                     // penalize control effort, or make the controller less aggressive. 12 is a
+                     // good starting point because that is the (approximate) maximum voltage of a
+                     // battery.
+          0.020); // Nominal time between loops. 0.020 for TimedRobot, but can be lower if using
+                  // notifiers.
 
-    // The state-space loop combines a controller, observer, feedforward and plant for easy control.
-    private final LinearSystemLoop<N1, N1, N1> m_loop =
-    new LinearSystemLoop<>(m_flywheelPlant, m_controller, m_observer, 12.0, 0.020);
+  // The state-space loop combines a controller, observer, feedforward and plant for easy control.
+  private final LinearSystemLoop<N1, N1, N1> m_loop =
+      new LinearSystemLoop<>(m_flywheelPlant, m_controller, m_observer, 12.0, 0.020);
 
   /**
-   * 
    * @param angularVelocity
    */
-  public void setFlyWheelO(double angularVelocity){
+  public void setFlyWheelO(double angularVelocity) {
     // Sets the target speed of our flywheel. This is similar to setting the setpoint of a
 
     // PID controller.
-     // We just pressed the trigger, so let's set our next reference
-     m_loop.setNextR(VecBuilder.fill(angularVelocity)); // TODO: How to use kSpinupRadPerSec?
+    // We just pressed the trigger, so let's set our next reference
+    m_loop.setNextR(VecBuilder.fill(angularVelocity)); // TODO: How to use kSpinupRadPerSec?
 
     // Correct our Kalman filter's state vector estimate with encoder data.
-    m_loop.correct(VecBuilder.fill(flyWheelMotor.getEncoder().getVelocity())); //.getRate() // TODO: What unit?  This might be in rev/s
+    m_loop.correct(
+        VecBuilder.fill(
+            flyWheelMotor
+                .getEncoder()
+                .getVelocity())); // .getRate() // TODO: What unit?  This might be in rev/s
     // Update our LQR to generate new voltage commands and use the voltages to predict the next
     // state with out Kalman filter.
     m_loop.predict(0.020);
@@ -123,4 +133,3 @@ public class Outtake extends SubsystemBase {
     m_loop.setNextR(VecBuilder.fill(0.0));
   }
 }
-
