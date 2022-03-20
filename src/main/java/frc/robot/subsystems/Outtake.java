@@ -85,15 +85,15 @@ public class Outtake extends SubsystemBase {
           m_flywheelPlant,
           VecBuilder.fill(
               8.0), // qelms. Velocity error tolerance, in radians per second. Decrease this to more
-                    // heavily penalize state excursion, or make the controller behave more
-                    // aggressively.
+          // heavily penalize state excursion, or make the controller behave more
+          // aggressively.
           VecBuilder.fill(
               12.0), // relms. Control effort (voltage) tolerance. Decrease this to more heavily
-                     // penalize control effort, or make the controller less aggressive. 12 is a
-                     // good starting point because that is the (approximate) maximum voltage of a
-                     // battery.
+          // penalize control effort, or make the controller less aggressive. 12 is a
+          // good starting point because that is the (approximate) maximum voltage of a
+          // battery.
           0.020); // Nominal time between loops. 0.020 for TimedRobot, but can be lower if using
-                  // notifiers.
+  // notifiers.
 
   // The state-space loop combines a controller, observer, feedforward and plant for easy control.
   private final LinearSystemLoop<N1, N1, N1> m_loop =
