@@ -31,6 +31,7 @@ public class Outtake extends SubsystemBase {
   /** Creates a new Outtake. */
   public Outtake() {
     feedWheelMotor.setInverted(true); // Spins backwards
+    resetLoop(); // Reset loop is placed in teleop init in the example
   }
 
   /**
@@ -51,6 +52,9 @@ public class Outtake extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
+  // Tutorial: https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-flywheel-walkthrough.html
+  // Example: https://github.com/wpilibsuite/allwpilib/blob/3b283ab9aaf9d23d7870b9c3723d03760a0bd378/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/statespaceflywheelsysid/Robot.java
 
   // Volts per (radian per second)
   private static final double kFlywheelKv = 0.099912;
@@ -82,7 +86,6 @@ public class Outtake extends SubsystemBase {
           0.020);
 
   // A LQR uses feedback to create voltage commands.
-
   private final LinearQuadraticRegulator<N1, N1, N1> m_controller =
       new LinearQuadraticRegulator<>(
           m_flywheelPlant,
@@ -102,8 +105,13 @@ public class Outtake extends SubsystemBase {
   private final LinearSystemLoop<N1, N1, N1> m_loop =
       new LinearSystemLoop<>(m_flywheelPlant, m_controller, m_observer, 12.0, 0.020);
 
+  public void resetLoop() {
+    // Reset our loop to make sure it's in a known state.
+    m_loop.reset(VecBuilder.fill(getVelocity()));
+  }
+    
   /**
-   * @param angVelocity
+   * @param angVelocity in rad/s, pre-adjusted for gearing
    */
   public void setFlyWheelO(double angVelocity) {
     angularVelocity = angVelocity;
@@ -115,7 +123,7 @@ public class Outtake extends SubsystemBase {
     m_loop.setNextR(VecBuilder.fill(angVelocity)); // kSpinupRadPerSec appers ato be the refernce (target) volocity
 
     // Correct our Kalman filter's state vector estimate with encoder data.
-    m_loop.correct(VecBuilder.fill(Units.rotationsPerMinuteToRadiansPerSecond(flyWheelMotor.getEncoder().getVelocity()))); // The Spark MAX reports in rev/s be defualt, but WPILib is metric and likes rad/s (eww) for some reason.  See https://www.chiefdelphi.com/t/units-for-spark-max-neo-encoder-and-state-space-control-kalman-filter-correction/406189 and https://github.com/wpilibsuite/allwpilib/blob/3b283ab9aaf9d23d7870b9c3723d03760a0bd378/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/statespaceflywheel/Robot.java
+    m_loop.correct(VecBuilder.fill(getVelocity())); 
     
     // Update our LQR to generate new voltage commands and use the voltages to predict the next
     // state with out Kalman filter.
@@ -135,8 +143,12 @@ public class Outtake extends SubsystemBase {
     m_loop.setNextR(VecBuilder.fill(0.0));
   }
 
+  /**
+   * 
+   * @return Flywheel veloicy in rad/s of the NEO encoder times the 1.33 step up gearing
+   */
   public double getVelocity() {
-    return flyWheelMotor.getEncoder().getVelocity();
+    return Units.rotationsPerMinuteToRadiansPerSecond(flyWheelMotor.getEncoder().getVelocity()*1.33); // The Spark MAX reports in rev/s be defualt, but WPILib is metric and likes rad/s (eww) for some reason.  See https://www.chiefdelphi.com/t/units-for-spark-max-neo-encoder-and-state-space-control-kalman-filter-correction/406189 and https://github.com/wpilibsuite/allwpilib/blob/3b283ab9aaf9d23d7870b9c3723d03760a0bd378/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/statespaceflywheel/Robot.java
   }
 
   public boolean reachedVelocity() {
