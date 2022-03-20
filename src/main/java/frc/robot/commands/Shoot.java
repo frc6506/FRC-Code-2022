@@ -40,7 +40,7 @@ public class Shoot extends CommandBase {
         .cancel(
             RobotContainer
                 .spinFeedWheel); // Canceling will/ should  interupt the command and stop the feed
-                                 // wheel
+    // wheel
     CommandScheduler.getInstance().schedule(RobotContainer.stopFlywheel);
   }
 
