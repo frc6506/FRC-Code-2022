@@ -44,6 +44,8 @@ public class RobotContainer {
   // https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/XboxController.Button.html,and https://first.wpi.edu/wpilib/allwpilib/docs/release/java/src-html/edu/wpi/first/wpilibj/XboxController.Button.html#line.24
   public static final JoystickButton shootButton =
       new JoystickButton(controller, Constants.JOYSTICK_BUTTON_SHOOT_ID);
+  public static final TriggerL2Button intakeButton = new TriggerL2Button();
+  public static final TriggerR2Button flywheelButton = new TriggerR2Button();
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
@@ -65,8 +67,9 @@ public class RobotContainer {
   // Shintake
   public static ExtendInAndOut extendInAndOut =
       new ExtendInAndOut(inAndOut2); // Extend linear actuator for Shintake Assybemly
-  public static SpinIntakeWheel spinIntakeWheel = new SpinIntakeWheel(intake); // Spin intake wheel
-  public static SpinFeedWheel spinFeedWheel =
+  public static final SpinIntakeWheel spinIntakeWheel =
+      new SpinIntakeWheel(intake); // Spin intake wheel
+  public static final SpinFeedWheel spinFeedWheel =
       new SpinFeedWheel(outtake); // Spin feed wheel for shooter
   public static SpinFlywheel spinFlywheel = new SpinFlywheel(outtake); // Spin flywheel
   public static BringInOutAndIn bringInOutAndIn =
@@ -83,8 +86,6 @@ public class RobotContainer {
   public RobotContainer() {
     // setting default commands
     drivetrain.setDefaultCommand(arcadeDrive);
-    intake.setDefaultCommand(spinIntakeWheel); // TODO: Change to trigger
-    outtake.setDefaultCommand(spinFlywheel); // TODO: Change to trigger
 
     // Configure the button bindings
     configureButtonBindings();
@@ -98,6 +99,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     shootButton.whileHeld(spinFeedWheel);
+    intakeButton.whileActiveContinuous(spinIntakeWheel);
+    flywheelButton.whileActiveContinuous(spinFlywheel);
   }
 
   /**
