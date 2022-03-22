@@ -51,6 +51,7 @@ public class Outtake extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    System.out.println("FlyWheel Veolocity: " + getVelocity());
   }
 
   // Tutorial:
@@ -147,7 +148,8 @@ public class Outtake extends SubsystemBase {
 
   public void stopFlyWheel() {
     // We just released the trigger, so let's spin down
-    m_loop.setNextR(VecBuilder.fill(0.0));
+    m_loop.setNextR(VecBuilder.fill(0.0));  //Not working
+    flyWheelMotor.setVoltage(0);
   }
 
   /**
