@@ -26,6 +26,6 @@ public class StartFlywheel extends InstantCommand {
     outtake.setFlyWheelO(
         Units.rotationsPerMinuteToRadiansPerSecond(5676)
             * 1.33
-            * .75); // Rev NEO in Rev/s to Rad/s * 1.33 step up gear * 75% output level
+            * .01); // Rev NEO in Rev/s to Rad/s * 1.33 step up gear * 75% output level
   }
 }
