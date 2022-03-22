@@ -86,8 +86,8 @@ public class Outtake extends SubsystemBase {
           m_flywheelPlant,
           VecBuilder.fill(
               3.0), // How accurate we think our model is  // As per, it shouldn't be trusted //
-                    // TODO: Lower model trust, at this piont, mabye straight up PId or jst a sipmle
-                    // P controler would be better
+          // TODO: Lower model trust, at this piont, mabye straight up PId or jst a sipmle
+          // P controler would be better
           VecBuilder.fill(0.01), // How accurate we think our encoderdata is
           0.020);
 
@@ -148,7 +148,7 @@ public class Outtake extends SubsystemBase {
 
   public void stopFlyWheel() {
     // We just released the trigger, so let's spin down
-    m_loop.setNextR(VecBuilder.fill(0.0));  //Not working
+    m_loop.setNextR(VecBuilder.fill(0.0)); // Not working
     flyWheelMotor.setVoltage(0);
   }
 
