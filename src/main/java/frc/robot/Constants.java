@@ -38,7 +38,7 @@ public final class Constants {
 
   // Shintake
   public static final int MOTOR_SHINTAKE_EXTENDER_ID = 20; // Linear actutator for shintake
-  public static final int SWITCH_SHINTAKE_EXTENDER_REV_ID = 0; // REV limit swtihc for linear actutator for shintake
+  public static final int SWITCH_SHINTAKE_EXTENDER_REV_ID = 9; // REV limit swtihc for linear actutator for shintake
   // In and Out moved to seperate file
   
   // Outtake
