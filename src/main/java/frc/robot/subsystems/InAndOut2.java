@@ -31,17 +31,17 @@ public class InAndOut2 extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     //System.out.println(getFWDLimitState());
-    System.out.println("REV Liimit Raw State: "+ rEVLimit.get());
-    System.out.println("Invert REV Liimit Raw State: "+ !rEVLimit.get());
+    //System.out.println("REV Liimit Raw State: "+ rEVLimit.get());
+    //System.out.println("Invert REV Liimit Raw State: "+ !rEVLimit.get());
   }
   /**
    * @param speed decimal percent [-1.0, 1.0] FWD and Rev Limit switch enforced
    */
   public void InAndOutExtend(double speed) {
-    System.out.println("Running in and out extend method with speed: " + speed + ", FWD limit state: " + getFWDLimitState() + ", and REV limit state: " + getRevLimitState());
-    System.out.println("Running in and out extend method");
+    //System.out.println("Running in and out extend method with speed: " + speed + ", FWD limit state: " + getFWDLimitState() + ", and REV limit state: " + getRevLimitState());
+    //System.out.println("Running in and out extend method");
     if(speed > 0 && !getFWDLimitState()) {
-      System.out.println("Extending shooter out");
+      //System.out.println("Extending shooter out");
       extendMotor.set(ControlMode.PercentOutput, speed);
     }
     else if(speed < 0 && !getRevLimitState()) {
