@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.AutoDrive;
 import frc.robot.commands.BringInOutAndIn;
 import frc.robot.commands.ExtendInAndOut;
 import frc.robot.commands.MoveSled;
@@ -68,6 +69,7 @@ public class RobotContainer {
 
   // Drive!
   public static ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);
+  public static AutoDrive autoDrive = new AutoDrive(drivetrain);
 
   // Shintake
   public static ExtendInAndOut extendInAndOut =
@@ -87,7 +89,7 @@ public class RobotContainer {
       new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
   public static MoveSled moveSled = new MoveSled(sled);
 
-  Command m_autonomousCommand; // Place holder
+  //Command m_autonomousCommand; // Place holder
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -119,6 +121,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autonomousCommand;
+    return autoDrive;
   }
 }
