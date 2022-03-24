@@ -46,11 +46,14 @@ public final class Constants {
   public static final int MOTOR_FEEDWHEEL_ID = 22; // Feeder wheel
   public static final int MOTOR_FLYWHEEL_ID = 23; // Flywheel
 
-  // Climber
+  // Climber Motors
   public static final int MOTOR_CLIMBER_EXTENDER_LEFT_ID = 30; // Linear actutator for climb
   public static final int MOTOR_CLIMBER_EXTENDER_RIGHT_ID = 31; // Linear actutator for climb 2
   public static final int MOTOR_CLIMBER_SLED_LEFT_ID = 40; // Motor for climb sled 1
   public static final int MOTOR_CLIMBER_SLED_RIGHT_ID = 41; //
 
-  public static final int JOYSTICK_BUTTON_CLIMB_RAISE_ID = 1;
+  // Climber Controllers
+  public static final int JOYSTICK_BUTTON_CLIMB_RAISE_ID = 5;
+  public static final int JOYSTICK_BUTTON_CLIMB_LOWER_ID = 6;
+
 }

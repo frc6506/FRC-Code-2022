@@ -13,6 +13,7 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutoDrive;
 import frc.robot.commands.BringInOutAndIn;
 import frc.robot.commands.ExtendInAndOut;
+import frc.robot.commands.LowerClimb;
 import frc.robot.commands.MoveSled;
 import frc.robot.commands.RaiseClimb;
 import frc.robot.commands.Shoot;
@@ -52,6 +53,7 @@ public class RobotContainer {
   public static final TriggerDPadDown bringInOutAndInButton  = new TriggerDPadDown();
 
   public static final JoystickButton climbRaiserButton = new JoystickButton(controller, Constants.JOYSTICK_BUTTON_CLIMB_RAISE_ID);
+  public static final JoystickButton climbLowerButton = new JoystickButton(controller, Constants.JOYSTICK_BUTTON_CLIMB_LOWER_ID);
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
@@ -85,8 +87,8 @@ public class RobotContainer {
       new BringInOutAndIn(inAndOut2); // Retract linear actuator for Shintake Assybemly
 
   // Climber
-  public static RaiseClimb raiseClimb =
-      new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
+  public static RaiseClimb raiseClimb = new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
+  public static LowerClimb lowerClimb = new LowerClimb(climbRaiser);
   public static MoveSled moveSled = new MoveSled(sled);
 
   //Command m_autonomousCommand; // Place holder
@@ -95,6 +97,7 @@ public class RobotContainer {
   public RobotContainer() {
     // setting default commands
     drivetrain.setDefaultCommand(arcadeDrive);
+    sled.setDefaultCommand(moveSled);
 
     // Configure the button bindings
     configureButtonBindings();
@@ -110,6 +113,7 @@ public class RobotContainer {
     intakeButton.whileActiveContinuous(spinIntakeWheel);
     shootButton.whileHeld(shoot);
     climbRaiserButton.whileHeld(raiseClimb);
+    climbLowerButton.whileHeld(lowerClimb);
     extendInAndOutButton.whileActiveContinuous(extendInAndOut);
     bringInOutAndInButton.whileActiveContinuous(bringInOutAndIn);
   }

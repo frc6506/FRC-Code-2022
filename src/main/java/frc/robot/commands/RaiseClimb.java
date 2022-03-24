@@ -25,7 +25,8 @@ public class RaiseClimb extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    climbRaiser.climbExtend(.1);
+    //System.out.println("Raiseing climb...");
+    climbRaiser.climbExtend(.25);
   }
 
   // Called once the command ends or is interrupted.

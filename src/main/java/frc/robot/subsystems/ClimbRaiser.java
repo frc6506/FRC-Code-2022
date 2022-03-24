@@ -19,6 +19,8 @@ public class ClimbRaiser extends SubsystemBase {
   public ClimbRaiser() {
     // Set second one to follow, non inverted
     extendMotorRight.follow(extendMotorMain);
+    extendMotorMain.setInverted(true);
+    extendMotorRight.setInverted(true);
   }
 
   @Override

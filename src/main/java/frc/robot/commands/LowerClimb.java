@@ -5,40 +5,40 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
-import frc.robot.subsystems.Sled;
+import frc.robot.subsystems.ClimbRaiser;
 
-public class MoveSled extends CommandBase {
-  private final Sled sled;
-  /** Creates a new moveSled. */
-  public MoveSled(Sled slideyBit) {
-    sled = slideyBit;
+public class LowerClimb extends CommandBase {
+  private final ClimbRaiser climbRaiser;
+
+  /** Creates a new LowerClimb. */
+  public LowerClimb(ClimbRaiser goingUp) {
+    climbRaiser = goingUp;
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(slideyBit);
+    addRequirements(goingUp);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = RobotContainer.controller.getRawAxis(5) * 0.5;
-    sled.slideSled(speed);    
+    //System.out.println("Lowering Climb...");
+    climbRaiser.climbExtend(-.25);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    sled.slideSled(0);
+    climbRaiser.climbExtend(0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    // Make this defualt command?
     return false;
   }
 }
