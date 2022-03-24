@@ -24,7 +24,8 @@ public class AutoDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    driveTrain.dDrive(0, 0);
+    double speed = 0.1;
+    driveTrain.dDrive(speed, speed);
   }
 
   // Called once the command ends or is interrupted.
