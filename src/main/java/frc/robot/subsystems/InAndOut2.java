@@ -31,6 +31,8 @@ public class InAndOut2 extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     //System.out.println(getFWDLimitState());
+    System.out.println("REV Liimit Raw State: "+ rEVLimit.get());
+    System.out.println("Invert REV Liimit Raw State: "+ !rEVLimit.get());
   }
   /**
    * @param speed decimal percent [-1.0, 1.0] FWD and Rev Limit switch enforced
@@ -50,7 +52,7 @@ public class InAndOut2 extends SubsystemBase {
     }
   }
 
-  /**
+  /**8
    * @return true if the FWD limit swithc is tripped See also:
    *     https://docs.ctre-phoenix.com/en/stable/ch13_MC.html?highlight=limit%20switch#limit-switch-as-digital-inputs
    */
@@ -63,6 +65,7 @@ public class InAndOut2 extends SubsystemBase {
    *     https://docs.ctre-phoenix.com/en/stable/ch13_MC.html?highlight=limit%20switch#limit-switch-as-digital-inputs
    */
   public boolean getRevLimitState() {
+    System.out.println("REV Liimit Raw State: "+ rEVLimit.get());
     return rEVLimit.get();
   }
   
