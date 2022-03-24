@@ -47,6 +47,10 @@ public class RobotContainer {
   public static final JoystickButton shootButton =
       new JoystickButton(controller, Constants.JOYSTICK_BUTTON_SHOOT_ID);
   public static final TriggerL2Button intakeButton = new TriggerL2Button();
+  public static final TriggerDPadUp extendInAndOutButton = new TriggerDPadUp();
+  public static final TriggerDPadDown bringInOutAndInButton  = new TriggerDPadDown();
+
+  public static final JoystickButton climbRaiserButton = new JoystickButton(controller, Constants.JOYSTICK_BUTTON_CLIMB_RAISE_ID);
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
@@ -103,6 +107,9 @@ public class RobotContainer {
   private void configureButtonBindings() {
     intakeButton.whileActiveContinuous(spinIntakeWheel);
     shootButton.whileHeld(shoot);
+    climbRaiserButton.whileHeld(raiseClimb);
+    extendInAndOutButton.whileActiveContinuous(extendInAndOut);
+    bringInOutAndInButton.whileActiveContinuous(bringInOutAndIn);
   }
 
   /**
