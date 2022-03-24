@@ -52,7 +52,7 @@ public class Outtake extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     //System.out.println("FlyWheel Veolocity: " + getVelocity());
-    System.out.println(flyWheelMotor.getSerialNumber());
+    //System.out.println(flyWheelMotor.getSerialNumber());
   }
 
   // Tutorial:
