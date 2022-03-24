@@ -23,7 +23,7 @@ public class BringInOutAndIn extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    inAndOut2.InAndOutExtend(-.25);
+    inAndOut2.InAndOutExtend(-.4);
   }
 
   // Called once the command ends or is interrupted.
