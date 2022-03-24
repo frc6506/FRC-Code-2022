@@ -51,7 +51,8 @@ public class Outtake extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    System.out.println("FlyWheel Veolocity: " + getVelocity());
+    //System.out.println("FlyWheel Veolocity: " + getVelocity());
+    System.out.println(flyWheelMotor.getSerialNumber());
   }
 
   // Tutorial:
@@ -164,6 +165,7 @@ public class Outtake extends SubsystemBase {
   }
 
   public boolean reachedVelocity() {
-    return (getVelocity() >= angularVelocity * .95) && (getVelocity() <= angularVelocity * 1.05);
+    System.out.println("Target V: " + angularVelocity);
+    return (getVelocity() >= angularVelocity * .95) /*&& (getVelocity() <= angularVelocity * 1.05)*/;
   }
 }
