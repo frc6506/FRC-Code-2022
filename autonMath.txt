@@ -1,0 +1,3 @@
+motor speed (rev/s) * percent output  gearing * circumfrance of wheel = linear speed
+
+dist / lienar speed = time
