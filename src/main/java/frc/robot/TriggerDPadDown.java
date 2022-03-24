@@ -7,10 +7,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /** Add your docs here. */
-public class TriggerDPadUp extends Trigger {
+public class TriggerDPadDown extends Trigger {
   @Override
   public boolean get() {
-    if(RobotContainer.controller.getPOV(0) == 0) {
+    if(RobotContainer.controller.getPOV(0) == 180) {
+      System.out.println("Controller Requested Move in.");
         return true;
     }
     else {
