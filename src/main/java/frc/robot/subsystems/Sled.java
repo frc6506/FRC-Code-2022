@@ -19,6 +19,7 @@ public class Sled extends SubsystemBase {
   public Sled() {
     // Set second one to follow, non inverted
     sledMotorRight.follow(sledMotorMain);
+    //sledMotorRight.setInverted(true);
   }
 
   @Override
@@ -33,6 +34,7 @@ public class Sled extends SubsystemBase {
    */
   public void slideSled(double speed) {
     sledMotorMain.set(ControlMode.PercentOutput, speed);
+    sledMotorRight.set(ControlMode.PercentOutput, -1 * speed);
   }
 
   /**
