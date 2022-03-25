@@ -10,12 +10,11 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class TriggerDPadDown extends Trigger {
   @Override
   public boolean get() {
-    if(RobotContainer.controller.getPOV(0) == 180) {
+    if (RobotContainer.controller.getPOV(0) == 180) {
       System.out.println("Controller Requested Move in.");
-        return true;
-    }
-    else {
-        return false;
+      return true;
+    } else {
+      return false;
     }
   }
 }

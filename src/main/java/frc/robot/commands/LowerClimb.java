@@ -20,13 +20,12 @@ public class LowerClimb extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    //System.out.println("Lowering Climb...");
+    // System.out.println("Lowering Climb...");
     climbRaiser.climbExtend(-.25);
   }
 
