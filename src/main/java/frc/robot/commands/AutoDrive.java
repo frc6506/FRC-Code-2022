@@ -43,8 +43,8 @@ public class AutoDrive extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    //return Timer.getMatchTime() < (15-5);
+    // return Timer.getMatchTime() < (15-5);
     return Timer.getFPGATimestamp() >= initTime + 5;
-    //return false;
+    // return false;
   }
 }
