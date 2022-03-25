@@ -18,7 +18,7 @@ public class Sled extends SubsystemBase {
   /** Creates a new Sled. */
   public Sled() {
     // Set second one to follow, non inverted
-    sledMotorRight.follow(sledMotorMain);
+    //sledMotorRight.follow(sledMotorMain);
     //sledMotorRight.setInverted(true);
   }
 
@@ -33,7 +33,7 @@ public class Sled extends SubsystemBase {
    * @param speed decimal percent [-1.0, 1.0] FWD and Rev Limit switch enforced
    */
   public void slideSled(double speed) {
-    sledMotorMain.set(ControlMode.PercentOutput, speed);
+    sledMotorMain.set(ControlMode.PercentOutput, speed * 0.75); // One side was faster, not sure how this coresponds to this controllers
     sledMotorRight.set(ControlMode.PercentOutput, -1 * speed);
   }
 
