@@ -26,7 +26,7 @@ public class ExtendInAndOut extends CommandBase {
   @Override
   public void execute() {
     outAndIn2.InAndOutExtend(.4);
-    //System.out.println("Execytue extend in and out at .25");
+    // System.out.println("Execytue extend in and out at .25");
   }
 
   // Called once the command ends or is interrupted.

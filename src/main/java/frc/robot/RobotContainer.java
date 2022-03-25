@@ -50,10 +50,12 @@ public class RobotContainer {
       new JoystickButton(controller, Constants.JOYSTICK_BUTTON_SHOOT_ID);
   public static final TriggerL2Button intakeButton = new TriggerL2Button();
   public static final TriggerDPadUp extendInAndOutButton = new TriggerDPadUp();
-  public static final TriggerDPadDown bringInOutAndInButton  = new TriggerDPadDown();
+  public static final TriggerDPadDown bringInOutAndInButton = new TriggerDPadDown();
 
-  public static final JoystickButton climbRaiserButton = new JoystickButton(controller, Constants.JOYSTICK_BUTTON_CLIMB_RAISE_ID);
-  public static final JoystickButton climbLowerButton = new JoystickButton(controller, Constants.JOYSTICK_BUTTON_CLIMB_LOWER_ID);
+  public static final JoystickButton climbRaiserButton =
+      new JoystickButton(controller, Constants.JOYSTICK_BUTTON_CLIMB_RAISE_ID);
+  public static final JoystickButton climbLowerButton =
+      new JoystickButton(controller, Constants.JOYSTICK_BUTTON_CLIMB_LOWER_ID);
 
   // Subystems
   public static Drivetrain drivetrain = new Drivetrain(); // Drivetrain
@@ -87,11 +89,12 @@ public class RobotContainer {
       new BringInOutAndIn(inAndOut2); // Retract linear actuator for Shintake Assybemly
 
   // Climber
-  public static RaiseClimb raiseClimb = new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
+  public static RaiseClimb raiseClimb =
+      new RaiseClimb(climbRaiser); // Raise climber up and maybe a little down
   public static LowerClimb lowerClimb = new LowerClimb(climbRaiser);
   public static MoveSled moveSled = new MoveSled(sled);
 
-  //Command m_autonomousCommand; // Place holder
+  // Command m_autonomousCommand; // Place holder
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

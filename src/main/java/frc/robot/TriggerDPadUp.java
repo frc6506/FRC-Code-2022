@@ -10,11 +10,10 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class TriggerDPadUp extends Trigger {
   @Override
   public boolean get() {
-    if(RobotContainer.controller.getPOV(0) == 0) {
-        return true;
-    }
-    else {
-        return false;
+    if (RobotContainer.controller.getPOV(0) == 0) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

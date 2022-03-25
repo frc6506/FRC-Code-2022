@@ -26,16 +26,13 @@ public class MoveSled extends CommandBase {
   @Override
   public void execute() {
     double speed = RobotContainer.controller.getRawAxis(5);
-    if(speed > 0) {
-      sled.slideSled(speed * 0.78);  
-    }
-    else if(speed < 0) {
-      sled.slideSled(speed * 0.78);  
-    }
-    else {
+    if (speed > 0) {
+      sled.slideSled(speed * 0.78);
+    } else if (speed < 0) {
+      sled.slideSled(speed * 0.78);
+    } else {
       sled.slideSled(0);
     }
-      
   }
 
   // Called once the command ends or is interrupted.

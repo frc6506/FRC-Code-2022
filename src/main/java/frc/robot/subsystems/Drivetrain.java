@@ -50,7 +50,7 @@ public class Drivetrain extends SubsystemBase {
    * @param rotation
    */
   public void aDrive(double speed, double rotation) {
-    dualDrive.arcadeDrive(Math.pow(speed, 5)*.75, Math.pow(rotation, 5)*.5, false);
+    dualDrive.arcadeDrive(Math.pow(speed, 5) * .75, Math.pow(rotation, 5) * .5, false);
   }
 
   /**

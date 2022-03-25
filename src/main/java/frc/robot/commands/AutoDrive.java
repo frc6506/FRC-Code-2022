@@ -9,7 +9,7 @@ import frc.robot.subsystems.Drivetrain;
 
 public class AutoDrive extends CommandBase {
   private final Drivetrain driveTrain;
-  
+
   /** Creates a new autoDrive. */
   public AutoDrive(Drivetrain dt) {
     driveTrain = dt;
