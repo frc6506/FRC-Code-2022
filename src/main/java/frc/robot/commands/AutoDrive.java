@@ -4,12 +4,15 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
 public class AutoDrive extends CommandBase {
   private final Drivetrain driveTrain;
-  
+
+  private double initTime;
+
   /** Creates a new autoDrive. */
   public AutoDrive(Drivetrain dt) {
     driveTrain = dt;
@@ -19,12 +22,15 @@ public class AutoDrive extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    initTime = Timer.getFPGATimestamp();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = 0.1;
+    System.out.println("Auton go!!!");
+    double speed = -.25;
     driveTrain.dDrive(speed, speed);
   }
 
@@ -37,6 +43,8 @@ public class AutoDrive extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    //return Timer.getMatchTime() < (15-5);
+    return Timer.getFPGATimestamp() >= initTime + 5;
+    //return false;
   }
 }
