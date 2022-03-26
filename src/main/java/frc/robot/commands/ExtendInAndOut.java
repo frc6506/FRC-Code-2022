@@ -25,7 +25,7 @@ public class ExtendInAndOut extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    outAndIn2.InAndOutExtend(.4);
+    outAndIn2.InAndOutExtend(.6);
     // System.out.println("Execytue extend in and out at .25");
   }
 
