@@ -37,7 +37,12 @@ public class Drivetrain extends SubsystemBase {
   // NavX gyroscope
   AHRS gyro = new AHRS(SPI.Port.kMXP);
 
-  public Drivetrain() {}
+  public Drivetrain() {
+    //leftMotor1.setOpenLoopRampRate(1);
+    //leftMotor2.setOpenLoopRampRate(1);
+    //rightMotor1.setOpenLoopRampRate(1);
+    //rightMotor2.setOpenLoopRampRate(1);
+  }
 
   @Override
   public void periodic() {
@@ -60,4 +65,13 @@ public class Drivetrain extends SubsystemBase {
   public void dDrive(double leftSpeed, double rightSpeed) {
     dualDrive.tankDrive(leftSpeed, rightSpeed);
   }
+
+  /**
+   * 
+   * @param distance
+   */
+  public void driveToDistance(double distance) {
+
+  }
+
 }
