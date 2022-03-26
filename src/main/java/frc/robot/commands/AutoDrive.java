@@ -31,7 +31,7 @@ public class AutoDrive extends CommandBase {
   public void execute() {
     System.out.println("Auton go!!!");
     double speed = -.25;
-    driveTrain.dDrive(speed, speed);
+    driveTrain.dDrive(speed, -speed);
   }
 
   // Called once the command ends or is interrupted.
@@ -44,7 +44,7 @@ public class AutoDrive extends CommandBase {
   @Override
   public boolean isFinished() {
     //return Timer.getMatchTime() < (15-5);
-    return Timer.getFPGATimestamp() >= initTime + 5;
+    return Timer.getFPGATimestamp() >= initTime + 12;
     //return false;
   }
 }
