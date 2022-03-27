@@ -24,7 +24,7 @@ public class AutoDriveDist extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    //driveTrain.resetDistCounter();  // TODO unfinished
+    // driveTrain.resetDistCounter();  // TODO unfinished
   }
 
   // Called every time the scheduler runs while the command is scheduled.

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutoDrive;
-//import frc.robot.commands.AutoM2;  // TODO unfinished
+// import frc.robot.commands.AutoM2;  // TODO unfinished
 import frc.robot.commands.BringInOutAndIn;
 import frc.robot.commands.ExtendInAndOut;
 import frc.robot.commands.LowerClimb;
@@ -75,7 +75,7 @@ public class RobotContainer {
   // Drive!
   public static ArcadeDrive arcadeDrive = new ArcadeDrive(drivetrain);
   public static AutoDrive autoDrive = new AutoDrive(drivetrain);
-  //public static AutoM2 autoM2 = new AutoM2();  // TODO unfinished
+  // public static AutoM2 autoM2 = new AutoM2();  // TODO unfinished
 
   // Shintake
   public static ExtendInAndOut extendInAndOut =
@@ -131,6 +131,6 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return autoDrive;
-    //return autoM2;  // TODO unfinished
+    // return autoM2;  // TODO unfinished
   }
 }

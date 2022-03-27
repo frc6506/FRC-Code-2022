@@ -69,7 +69,6 @@ public class Drivetrain extends SubsystemBase {
     dualDrive.tankDrive(leftSpeed, rightSpeed);
   }
 
-  
   /**
    * @param distance
    */
@@ -87,7 +86,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   /**
-   * 
+   *
    * @return distance driven in ft
    */
   /*
