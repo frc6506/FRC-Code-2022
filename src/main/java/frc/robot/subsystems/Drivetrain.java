@@ -38,10 +38,10 @@ public class Drivetrain extends SubsystemBase {
   AHRS gyro = new AHRS(SPI.Port.kMXP);
 
   public Drivetrain() {
-    //leftMotor1.setOpenLoopRampRate(1);
-    //leftMotor2.setOpenLoopRampRate(1);
-    //rightMotor1.setOpenLoopRampRate(1);
-    //rightMotor2.setOpenLoopRampRate(1);
+    // leftMotor1.setOpenLoopRampRate(1);
+    // leftMotor2.setOpenLoopRampRate(1);
+    // rightMotor1.setOpenLoopRampRate(1);
+    // rightMotor2.setOpenLoopRampRate(1);
   }
 
   @Override
@@ -67,11 +67,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   /**
-   * 
    * @param distance
    */
-  public void driveToDistance(double distance) {
-
-  }
-
+  public void driveToDistance(double distance) {}
 }

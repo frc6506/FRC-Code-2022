@@ -10,7 +10,7 @@ import frc.robot.subsystems.Drivetrain;
 public class AutoDriveDist extends CommandBase {
   private final Drivetrain driveTrain;
 
-  //private double distance;
+  // private double distance;
 
   /** Creates a new AutoDriveDist. */
   public AutoDriveDist(Drivetrain dt) {
@@ -31,7 +31,6 @@ public class AutoDriveDist extends CommandBase {
     System.out.println("Auton2 go!!!");
     double speed = -.25;
     driveTrain.dDrive(speed, -speed);
-    
   }
 
   // Called once the command ends or is interrupted.
