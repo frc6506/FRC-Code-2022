@@ -37,6 +37,8 @@ public class Drivetrain extends SubsystemBase {
   // NavX gyroscope
   AHRS gyro = new AHRS(SPI.Port.kMXP);
 
+  private double distanceDriven = 0;
+
   public Drivetrain() {
     // leftMotor1.setOpenLoopRampRate(1);
     // leftMotor2.setOpenLoopRampRate(1);
@@ -47,6 +49,7 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    // leftMotor1.getEncoder().getVelocity(); // TODO unfinished
   }
 
   // Wrapper Methods
@@ -66,8 +69,31 @@ public class Drivetrain extends SubsystemBase {
     dualDrive.tankDrive(leftSpeed, rightSpeed);
   }
 
+  
   /**
    * @param distance
    */
-  public void driveToDistance(double distance) {}
+  /*
+  public void driveToDistance(double distance) {
+
+  }
+
+  /**
+   * Resets dist counters
+   */
+  /*
+  public void resetDistCounter() {
+    distanceDriven = 0;
+  }
+
+  /**
+   * 
+   * @return distance driven in ft
+   */
+  /*
+  public double getDistanceDriven() {
+    return distanceDriven;
+  }
+  */
+
 }
