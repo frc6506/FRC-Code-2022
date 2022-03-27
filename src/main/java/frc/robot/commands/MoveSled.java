@@ -27,9 +27,9 @@ public class MoveSled extends CommandBase {
   public void execute() {
     double speed = RobotContainer.controller.getRawAxis(5);
     if (speed > 0) {
-      sled.slideSled(speed * 0.78);
+      sled.slideSled(speed * 0.9);
     } else if (speed < 0) {
-      sled.slideSled(speed * 0.78);
+      sled.slideSled(speed * 0.9);
     } else {
       sled.slideSled(0);
     }
