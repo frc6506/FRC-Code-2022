@@ -37,8 +37,8 @@ public class ArcadeDrive extends CommandBase {
   public void execute() {
     // double speed = Robot.m_oi.getAxis(RobotMap.JOYSTICK_DRIVE_FORWARDS_ID) * -1;
     // double rotation = Robot.m_oi.getAxis(RobotMap.JOYSTICK_DRIVE_ROTATION_ID)
-    double speed = RobotContainer.controller.getRawAxis(0) *.5;
-    double rotation = RobotContainer.controller.getRawAxis(1) * -1*.5;
+    double speed = RobotContainer.controller.getRawAxis(0) * .5;
+    double rotation = RobotContainer.controller.getRawAxis(1) * -1 * .5;
     // double speed = RobotContainer.controller.getLeftX();
     // double rotation = RobotContainer.controller.getLeftY();
     driveTrain.aDrive(speed, rotation);
